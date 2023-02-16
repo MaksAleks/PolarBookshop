@@ -1,4 +1,4 @@
 rootProject.name = 'PolarBookshop'
 include 'Commons'
-include 'CatalogService'
+include 'catalog'
 

@@ -4,7 +4,13 @@ It's a pet project made for learning cloud native application development techni
 by book [Cloud Native Spring in action](https://livebook.manning.com/book/cloud-native-spring-in-action)
 
 ### Useful links to resources I will be using during development
+#### Building apps' images
 - [Containerizing spring boot applications](https://spring.io/guides/topicals/spring-boot-docker/)
+- [Multi-staged docker builds](https://docs.docker.com/build/building/multi-stage/)
+- [Optimizing docker builds with cache](https://docs.docker.com/build/cache/)
+- [Accelerate docker builds with COPY --link](https://www.howtogeek.com/devops/how-to-accelerate-docker-builds-and-optimize-caching-with-copy-link/)
+
+#### Apps' designing and diagramming
 - [C4 model for creating meaningful diagrams for designing an applications](https://www.infoq.com/articles/C4-architecture-model/)
 
 ## The application history
