@@ -1,2 +1,22 @@
 server:
   port: 8081
+  tomcat:
+    connection-timeout: 2s
+    keep-alive-timeout: 15s
+    threads:
+      max: 50
+      min-spare: 5
+spring:
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://postgres:5432/catalog
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+      minimum-idle: 5
+  flyway:
+    enabled: true
+    locations: db/migration
+    table: FLYWAY_SCHEMA_VERSION
+    sql-migration-prefix: schema-postgres-

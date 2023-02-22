@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:postgresql:11.4://hostname/databasename?TC_DAEMON=true&TC_TMPFS=/var/lib/postgresql/data:rw
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+      minimum-idle: 5
+  flyway:
+    locations: db/migration
+    table: FLYWAY_SCHEMA_VERSION
+    sql-migration-prefix: schema-postgres-
+    enabled: true

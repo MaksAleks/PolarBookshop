@@ -1,6 +1,18 @@
 version: "3.7"
 services:
+  postgres:
+    ports:
+      - "5432:5432"
+    image: postgres:12.6
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - ./postgres:/docker-entrypoint-initdb.d/
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    command: [ "postgres", "-c", "log_statement=all" ]
   catalog-service-1:
+    depends_on: [postgres]
     build:
       context: ../catalog/
       dockerfile: Dockerfile
@@ -9,6 +21,7 @@ services:
     environment:
       - CATALOG_APP_HELLO_MSG=Hello-1
   catalog-service-2:
+    depends_on: [postgres]
     build:
       context: ../catalog/
       dockerfile: Dockerfile
@@ -22,3 +35,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8081:8081"
+
+volumes:
+  pg-data:
