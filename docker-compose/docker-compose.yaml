@@ -1,5 +1,23 @@
 version: "3.7"
 services:
+  # mongo
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: polar
+      MONGO_INITDB_ROOT_PASSWORD: polar
+    volumes:
+      - mongo=da
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: polar
+      ME_CONFIG_MONGODB_ADMINPASSWORD: polar
+      ME_CONFIG_MONGODB_URL: mongodb://polar:polar@mongo:27017/
   postgres:
     ports:
       - "5432:5432"
@@ -38,3 +56,4 @@ services:
 
 volumes:
   pg-data:
+  mongp-data:
